@@ -6,11 +6,35 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: const Text(
-          'Romchi Premium',
-          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+        title: const Text.rich(
+          TextSpan(
+            children: [
+              WidgetSpan(
+                child: Icon(Icons.diamond, color: Colors.amber, size: 24),
+              ),
+              WidgetSpan(child: SizedBox(width: 8)),
+              TextSpan(
+                text: 'Romchi',
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+              TextSpan(
+                text: 'Premium',
+                style: TextStyle(
+                  color: Colors.amber,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+            ],
+          ),
         ),
+        centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
@@ -18,12 +42,9 @@ class DashboardScreen extends StatelessWidget {
           onPressed: () {},
         ),
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              backgroundColor: Colors.grey[200],
-              child: const Icon(Icons.person, color: Colors.grey),
-            ),
+          IconButton(
+            icon: const Icon(Icons.language, color: Colors.red),
+            onPressed: () {},
           ),
         ],
       ),
@@ -38,29 +59,30 @@ class DashboardScreen extends StatelessWidget {
               crossAxisCount: 2,
               crossAxisSpacing: 16.0,
               mainAxisSpacing: 16.0,
+              childAspectRatio: 1.1,
               children: [
                 _buildDashboardCard(
                   'Buyurtmalar',
-                  Icons.list_alt,
-                  Colors.orange,
+                  Icons.edit_document,
+                  Colors.blue,
                 ),
                 _buildDashboardCard(
                   'Mahsulotlar narxi',
-                  Icons.price_change,
-                  Colors.green,
+                  Icons.monetization_on,
+                  Colors.amber,
                 ),
                 _buildDashboardCard(
                   'Video qo\'llanmalar',
                   Icons.play_circle_fill,
                   Colors.red,
                 ),
+                _buildDashboardCard('Madellar', Icons.window, Colors.lightBlue),
+                _buildDashboardCard('Korxona', Icons.business, Colors.indigo),
                 _buildDashboardCard(
-                  'Kalkulyator',
-                  Icons.calculate,
-                  Colors.blue,
+                  'Akfa',
+                  Icons.branding_watermark,
+                  Colors.redAccent,
                 ),
-                _buildDashboardCard('Korxona', Icons.business, Colors.purple),
-                _buildDashboardCard('Madellar', Icons.window, Colors.teal),
               ],
             ),
             const SizedBox(height: 24),
@@ -70,13 +92,28 @@ class DashboardScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Card(
+              elevation: 2,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
               child: ListTile(
-                leading: const Icon(Icons.newspaper, color: Colors.blue),
-                title: const Text('Yangi versiya chiqdi!'),
+                contentPadding: const EdgeInsets.all(16),
+                leading: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Colors.blue[50],
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(Icons.newspaper, color: Colors.blue),
+                ),
+                title: const Text(
+                  'Yangi versiya chiqdi!',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 subtitle: const Text(
                   'Romchi 3D qo\'shildi va hisob kitobdagi kamchiliklar to\'g\'irlandi!',
                 ),
-                trailing: const Icon(Icons.arrow_forward_ios),
+                trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                 onTap: () {},
               ),
             ),
@@ -100,10 +137,17 @@ class DashboardScreen extends StatelessWidget {
             children: [
               Icon(icon, size: 48, color: color),
               const SizedBox(height: 16),
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontWeight: FontWeight.bold),
+              Flexible(
+                child: Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ],
           ),
