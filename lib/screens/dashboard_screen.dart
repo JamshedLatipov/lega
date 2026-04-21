@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'design_screen.dart';
+import 'template_selection_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -44,23 +46,45 @@ class DashboardScreen extends StatelessWidget {
               childAspectRatio: 1.1,
               children: [
                 _buildDashboardCard(
+                  context,
                   'Заказы',
                   Icons.edit_document,
                   const Color(0xFFe63946),
                 ),
                 _buildDashboardCard(
+                  context,
                   'Цены на продукцию',
                   Icons.monetization_on,
                   const Color(0xFF1d3557),
                 ),
                 _buildDashboardCard(
+                  context,
                   'Видеоуроки',
                   Icons.play_circle_fill,
                   const Color(0xFFe63946),
                 ),
-                _buildDashboardCard('Модели', Icons.window, const Color(0xFF1d3557)),
-                _buildDashboardCard('Компания', Icons.business, const Color(0xFFe63946)),
                 _buildDashboardCard(
+                  context,
+                  'Модели',
+                  Icons.window,
+                  const Color(0xFF1d3557),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TemplateSelectionScreen(),
+                      ),
+                    );
+                  },
+                ),
+                _buildDashboardCard(
+                  context,
+                  'Компания',
+                  Icons.business,
+                  const Color(0xFFe63946),
+                ),
+                _buildDashboardCard(
+                  context,
                   'Akfa',
                   Icons.branding_watermark,
                   const Color(0xFF1d3557),
@@ -96,7 +120,14 @@ class DashboardScreen extends StatelessWidget {
                   'Добавлен Romchi 3D и исправлены ошибки в расчетах!',
                 ),
                 trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DesignScreen(),
+                    ),
+                  );
+                },
               ),
             ),
           ],
@@ -105,12 +136,18 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildDashboardCard(String title, IconData icon, Color color) {
+  Widget _buildDashboardCard(
+    BuildContext context,
+    String title,
+    IconData icon,
+    Color color, {
+    VoidCallback? onTap,
+  }) {
     return Card(
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: InkWell(
-        onTap: () {},
+        onTap: onTap ?? () {},
         borderRadius: BorderRadius.circular(16),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
