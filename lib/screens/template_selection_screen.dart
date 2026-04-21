@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'design_screen.dart';
 
 class TemplateSelectionScreen extends StatelessWidget {
   const TemplateSelectionScreen({super.key});
@@ -34,13 +35,23 @@ class TemplateSelectionScreen extends StatelessWidget {
               ),
               itemCount: 6,
               itemBuilder: (context, index) {
-                return Card(
-                  color: Colors.grey[200],
-                  child: Center(
-                    child: Icon(
-                      Icons.window,
-                      size: 64,
-                      color: Colors.grey[400],
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const DesignScreen(),
+                      ),
+                    );
+                  },
+                  child: Card(
+                    color: Colors.grey[200],
+                    child: Center(
+                      child: Icon(
+                        Icons.window,
+                        size: 64,
+                        color: Colors.grey[400],
+                      ),
                     ),
                   ),
                 );
