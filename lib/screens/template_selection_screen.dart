@@ -8,7 +8,7 @@ class TemplateSelectionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Template'),
+        title: const Text('Шаблоны'),
         backgroundColor: Colors.blue,
       ),
       body: Column(
@@ -19,9 +19,9 @@ class TemplateSelectionScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildTabItem('Deraza', Icons.window, true),
-                _buildTabItem('Eshik', Icons.door_front_door, false),
-                _buildTabItem('Fortochka', Icons.crop_square, false),
+                _buildTabItem('Окна', Icons.window, true),
+                _buildTabItem('Двери', Icons.door_front_door, false),
+                _buildTabItem('Форточки', Icons.crop_square, false),
               ],
             ),
           ),

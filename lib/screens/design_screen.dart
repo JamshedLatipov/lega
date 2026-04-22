@@ -22,7 +22,7 @@ class _DesignScreenState extends State<DesignScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Window design (Romchi 3D)'),
+        title: const Text('Дизайн окна (3D)'),
         backgroundColor: Colors.blue,
       ),
       body: Column(
@@ -52,7 +52,7 @@ class _DesignScreenState extends State<DesignScreen> {
               children: [
                 Row(
                   children: [
-                    const Text('Width (mm):'),
+                    const Text('Ширина (мм):'),
                     Expanded(
                       child: Slider(
                         value: _width,
@@ -66,7 +66,7 @@ class _DesignScreenState extends State<DesignScreen> {
                 ),
                 Row(
                   children: [
-                    const Text('Height (mm):'),
+                    const Text('Высота (мм):'),
                     Expanded(
                       child: Slider(
                         value: _height,
@@ -79,7 +79,7 @@ class _DesignScreenState extends State<DesignScreen> {
                   ],
                 ),
                 Text(
-                  'Area: ${_area.toStringAsFixed(2)} m² | Price: \$${_totalPrice.toStringAsFixed(2)}',
+                  'Площадь: ${_area.toStringAsFixed(2)} m² | Price: \$${_totalPrice.toStringAsFixed(2)}',
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -87,7 +87,7 @@ class _DesignScreenState extends State<DesignScreen> {
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Drag the window below to rotate in 3D',
+                  'Проведите по окну, чтобы вращать в 3D',
                   style: TextStyle(color: Colors.grey),
                 ),
               ],
