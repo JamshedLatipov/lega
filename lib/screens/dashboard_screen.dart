@@ -117,7 +117,7 @@ class DashboardScreen extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 subtitle: const Text(
-                  'Добавлен Romchi 3D и исправлены ошибки в расчетах!',
+                  'Добавлен 3D дизайн и исправлены ошибки в расчетах!',
                 ),
                 trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                 onTap: () {
